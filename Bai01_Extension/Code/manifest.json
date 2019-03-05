@@ -1,0 +1,22 @@
+{
+    "name": "Demo",
+    "version": "1.2.0",
+    "description": "demo",
+    "homepage_url": "https://soict.hust.edu.vn/",
+	"background": 
+	{
+		"scripts": [ "main.js" ]
+	},
+	"content_scripts": [
+    {
+      "matches": ["https://soict.hust.edu.vn/"],
+      "js": ["content.js"]
+    }
+  ],
+    "browser_button": {
+        "caption": "Demo",
+        "tooltipText": "Demo",
+        "icon": "icons/button.png"
+    },
+	"manifest_version": 2
+}

@@ -1,0 +1,44 @@
+document.getElementById('report').addEventListener('click', report);
+document.getElementById('setLimit').addEventListener('click', setLimit);
+
+function report() {
+	var count = getCookie("count");
+  	if (count == "")
+    {
+      	count = 0;
+    }
+  	alert("Count facebook visited : "+count);
+}
+
+function setLimit(){
+	var timeLimit = document.getElementById("inputBox").value;
+  	if ((timeLimit != "")&&(timeLimit != null))
+    {
+      	setCookie("timeLimit", timeLimit, 30);
+    }
+}
+
+// Thêm một Cookie
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+// Lấy cookie
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
